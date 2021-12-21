@@ -13,16 +13,16 @@ BINARY := $(BUILDDIR)/$(PRODUCT)
 # begin compiler-dependent flags
 #
 # gcc flags:
-#CXX := g++
-#CXXFLAGS_DEBUG := -g
-#CXXFLAGS_OPT := -O3
-#CXXFLAGS_OPENMP := -fopenmp
+CXX := g++
+CXXFLAGS_DEBUG := -g
+CXXFLAGS_OPT := -O3
+CXXFLAGS_OPENMP := -fopenmp
 
 # intel flags:
-CXX := icpc
-CXXFLAGS_DEBUG := -g
-CXXFLAGS_OPT := -O3 -fast -fno-alias
-CXXFLAGS_OPENMP := -openmp
+#CXX := icpc
+#CXXFLAGS_DEBUG := -g
+#CXXFLAGS_OPT := -O3 -fast -fno-alias
+#CXXFLAGS_OPENMP := -openmp
 
 # pgi flags:
 #CXX := pgCC
@@ -39,8 +39,8 @@ CXXFLAGS := $(CXXFLAGS_OPT)
 # add mpi to compile (comment out for serial build)
 # the following assumes the existence of an mpi compiler
 # wrapper called mpicxx
-CXX := mpicxx
-CXXFLAGS += -DUSE_MPI
+#CXX := mpicxx
+#CXXFLAGS += -DUSE_MPI
 
 # add openmp flags (comment out for serial build)
 CXXFLAGS += $(CXXFLAGS_OPENMP)

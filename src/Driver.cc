@@ -94,6 +94,10 @@ void Driver::run() {
         tlast = tbegin;
     }
 
+    //Add BarrierPoints ROI
+    setenv("ROI_BP", "1", 1);
+    #pragma omp barrier
+    
     // main event loop
     while (cycle < cstop && time < tstop) {
 
@@ -125,6 +129,9 @@ void Driver::run() {
         } // if mype...
 
     } // while cycle...
+    
+    setenv("ROI_BP", "0", 1);
+    #pragma omp barrier
 
     if (mype == 0) {
 
